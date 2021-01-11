@@ -1,0 +1,55 @@
+server:
+  servlet.context-path: /
+spring:
+  application:
+    name: config-server
+  profiles:
+    include: native,default
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:D:/job/books/infrastructure/config-repository #TODO Позже порешать
+
+#MANAGMENT
+management:
+  endpoints.web.exposure.include: "*"
+  endpoint:
+    shutdown.enabled: true
+    health.show-details: ALWAYS
+
+#service discovery client
+eureka:
+  instance.prefer-ip-address: true
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+
+logging.config: classpath:log4j2.xml
+
+MANAGEMENT_ADMIN_PASSWORD: drumzz
+CONFIG_SERVICE_PASSWORD: drumzz
+
+dvorik:
+  app.num: "02"
+  timezone: UTC
+
+
+##---
+#spring.config.activate.on-profile: alone
+#spring.config.import: bootstrap-alone.yml
+#
+##---
+#spring.config.activate.on-profile: doker
+#spring.config.import: bootstrap-doker.yml
+#
+##---
+#spring.config.activate.on-profile: prod
+#spring.config.import: bootstrap-prod.yml
+#
+##---
+#spring.config.activate.on-profile: developer
+#spring.config.import: bootstrap-developer.yml
+
+
+

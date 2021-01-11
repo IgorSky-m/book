@@ -1,0 +1,31 @@
+server:
+  servlet.context-path: /
+spring:
+  application:
+    name: discovery-server
+  profiles:
+    include: default
+  cloud:
+    config:
+      username: config_client
+      password: ${CONFIG_SERVICE_PASSWORD}
+      fail-fast: true
+
+management:
+  endpoints.web.exposure.include: "*"
+  endpoint:
+    shutdown.enabled: true
+    health.show-details: ALWAYS
+
+eureka:
+  instance.prefer-ip-address: true
+  instance.metadataMap.management.port: 7${dvorik.app.num}9
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+
+logging.config: classpath:log4j2.xml
+
+dvorik:
+  app.num: "03"
+  timezone: UTC

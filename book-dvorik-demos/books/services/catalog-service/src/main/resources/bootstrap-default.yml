@@ -1,0 +1,4 @@
+server.port: 8${dvorik.app.num}0
+management.server.port: 8${dvorik.app.num}9
+eureka.instance.metadataMap.management.port: 8${dvorik.app.num}9
+eureka.client.serviceUrl.defaultZone: http://localhost:7030/eureka/

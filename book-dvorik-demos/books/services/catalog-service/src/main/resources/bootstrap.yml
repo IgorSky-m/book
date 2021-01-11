@@ -1,0 +1,29 @@
+server:
+  servlet.context-path: /
+spring:
+  application:
+    name: doc-validations-service
+  profiles:
+    include: default
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true
+      username: config_client
+      password: ${CONFIG_SERVICE_PASSWORD}
+      fail-fast: true
+
+eureka:
+  instance.prefer-ip-address: true
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+
+logging.config: classpath:log4j2.xml
+
+management.info.git.mode: full
+
+dvorik:
+  app.num: "01"
+  timezone: UTC

@@ -1,0 +1,11 @@
+#Disable cloud config
+spring:
+  cloud:
+    discovery.enabled: false
+    config:
+      enabled: false
+      discovery.enabled: false
+
+eureka.client.enabled: false
+
+springfox.documentation.swagger.v2.path: /api

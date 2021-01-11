@@ -1,0 +1,5 @@
+server.port: 7${dvorik.app.num}0
+management.server.port: 7${dvorik.app.num}9
+spring.cloud.config.uri: http://localhost:7020
+eureka.instance.metadataMap.management.port: 7${dvorik.app.num}9
+eureka.client.serviceUrl.defaultZone: http://localhost:7${dvorik.app.num}0/eureka/

@@ -1,0 +1,33 @@
+server:
+  servlet.context-path: /
+spring:
+  application:
+    name: gateway-server
+  profiles:
+    include: default
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true
+      username: config_client
+      password: ${CONFIG_SERVICE_PASSWORD}
+      fail-fast: true
+
+management:
+  endpoints.web.exposure.include: "*"
+  endpoint:
+    shutdown.enabled: true
+    health.show-details: ALWAYS
+
+eureka:
+  instance.prefer-ip-address: true
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+
+logging.config: classpath:log4j2.xml
+
+dvorik:
+  app.num: "01"
+  timezone: UTC
